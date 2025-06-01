@@ -13,3 +13,8 @@ export interface ButtonProps {
     bgColor?: string;
     textColor?: string;
 }
+
+export interface UserData {
+    email: string;
+    password: string;
+}
