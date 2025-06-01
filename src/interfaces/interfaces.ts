@@ -18,3 +18,8 @@ export interface UserData {
     email: string;
     password: string;
 }
+
+export interface AuthStatus {
+    loading: boolean;
+    error: string | null;
+}
