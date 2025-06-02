@@ -15,6 +15,7 @@ export function useAuth() {
   const [authStatus, setAuthStatus] = useState({
     loading: false,
     error: null as string | null,
+    success: false 
   });
 
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -25,13 +26,14 @@ export function useAuth() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    setAuthStatus({ loading: true, error: null });
+    setAuthStatus({ loading: true, error: null, success: false });
 
     try {
       await login(user);
+      setAuthStatus({ loading: false, error: null, success: true });
       router.push("/dashboard");
     } catch (error) {
-      setAuthStatus({ loading: false, error: (error as Error).message });
+      setAuthStatus({ loading: false, error: (error as Error).message, success: false});
     }
   };
 

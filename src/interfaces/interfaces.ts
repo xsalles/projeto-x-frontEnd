@@ -12,6 +12,7 @@ export interface ButtonProps {
     onClick?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     bgColor?: string;
     textColor?: string;
+    disabled?: boolean;
 }
 
 export interface UserData {
@@ -22,4 +23,5 @@ export interface UserData {
 export interface AuthStatus {
     loading: boolean;
     error: string | null;
+    success: boolean;
 }
